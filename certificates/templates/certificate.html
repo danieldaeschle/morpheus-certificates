@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='certificate.css') }}">
+{% endblock %}
+
+{% block content %}
+    <body class="sheet__container">
+    <div class="sheet">
+        <h2 class="sheet__title">Certificate</h2>
+
+        <table class="sheet__table">
+            <tr>
+                <td class="sheet__table-cell sheet__table-cell--bold">Person</td>
+                <td class="sheet__table-cell sheet__table-cell--right">Cedric Mössner</td>
+            </tr>
+            <tr>
+                <td class="sheet__table-cell sheet__table-cell--bold">Date of Issue</td>
+                <td class="sheet__table-cell sheet__table-cell--right">19.03.2019</td>
+            </tr>
+            <tr>
+                <td class="sheet__table-cell sheet__table-cell--bold">Type of Certificate</td>
+                <td class="sheet__table-cell sheet__table-cell--right">Programming</td>
+            </tr>
+            <tr>
+                <td class="sheet__table-cell sheet__table-cell--bold">Token</td>
+                <td class="sheet__table-cell sheet__table-cell--right">7839245893489573</td>
+            </tr>
+            <tr>
+                <td class="sheet__table-cell sheet__table-cell--bold">Code Link</td>
+                <td class="sheet__table-cell sheet__table-cell--right">Link to code</td>
+            </tr>
+            <tr>
+                <td class="sheet__table-cell sheet__table-cell--bold">Approved by</td>
+                <td class="sheet__table-cell sheet__table-cell--right">Daniel Däschle</td>
+            </tr>
+        </table>
+
+        <h4 class="sheet__subtitle">Description</h4>
+        <p class="sheet__description">
+            Imported module called easy in Python and deployed it with Docker.
+        </p>
+    </div>
+    </body>
+{% endblock %}

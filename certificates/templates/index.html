@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock %}
+
+{% block content %}
+    <body class="box__container">
+    <form action="{{ url_for('routes.certificate') }}" method="get">
+        <div class="box">
+            <h3 class="box__title">Certificate Validity</h3>
+
+            <input class="input" autofocus name="token" placeholder="Token" required>
+
+            <div class="box__actions">
+                <button class="button" type="submit">Check</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="license">
+        Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a>
+        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+        is licensed by
+        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">
+            CC 3.0 BY
+        </a>
+    </div>
+    </body>
+{% endblock %}

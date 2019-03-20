@@ -1,0 +1,29 @@
+.box {
+    border-radius: 0.4em;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    display: inline-flex;
+    flex-direction: column;
+    padding: 1.2em;
+    width: 250px;
+}
+.box__actions {
+    display: flex;
+    margin-top: 1rem;
+}
+.box__container {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+.box__title {
+    margin: 0 0 1rem;
+}
+.license {
+    bottom: 0;
+    color: gray;
+    font-size: 12px;
+    padding: 0.4em;
+    position: absolute;
+    right: 0;
+}

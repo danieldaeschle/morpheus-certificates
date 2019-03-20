@@ -1,0 +1,35 @@
+.sheet {
+    border-radius: 0.6em;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    display: inline-flex;
+    flex-direction: column;
+    margin: 2rem 0;
+    max-width: 600px;
+    padding: 1.2em;
+    width: 100%;
+}
+.sheet__container {
+    display: flex;
+    justify-content: center;
+}
+.sheet__description {
+    margin: 0;
+}
+.sheet__subtitle {
+    margin: 1rem 0 0.4rem;
+}
+.sheet__title {
+    margin: 0 0 1rem;
+}
+.sheet__table {
+    border-spacing: 0;
+}
+.sheet__table-cell {
+    padding:  0.2em 0;
+}
+.sheet__table-cell--bold {
+    font-weight: 600;
+}
+.sheet__table-cell--right {
+    text-align: right;
+}

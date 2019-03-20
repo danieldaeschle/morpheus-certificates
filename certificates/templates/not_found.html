@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock %}
+
+{% block content %}
+    <body class="box__container">
+    <div class="box">
+        <h3 class="box__title">Certificate Not Found</h3>
+
+        <div class="box__actions">
+            <a class="button" href="{{ url_for('routes.index') }}" tabindex="0">Retry</a>
+        </div>
+    </div>
+    </body>
+{% endblock %}

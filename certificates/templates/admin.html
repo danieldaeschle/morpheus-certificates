@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+{% endblock %}
+
+{% block content %}
+    <body>
+
+    <div class="modal" id="create-cert">
+        <h3>Create Certificate</h3>
+
+        <form method="post">
+            <input type="hidden" name="type" value="create">
+            <input class="input modal__form" type="text" name="person" placeholder="Person" required>
+            <input class="input modal__form" type="text" name="token" placeholder="Token" required>
+            <input class="input modal__form" type="date" name="date" placeholder="Date of Issue (DD.MM.YYYY)">
+            <input class="input modal__form" type="text" name="type" placeholder="Type of Certificate" required>
+            <input class="input modal__form" type="text" name="link" placeholder="Code Link">
+            <input class="input modal__form" type="text" name="approved_by" placeholder="Approved by" required>
+            <textarea class="input modal__form" name="description" placeholder="Description" required></textarea>
+
+            <div class="modal__actions">
+                <button class="button" type="button"
+                        onclick="document.getElementById('create-cert').style.display = 'none'">
+                    Cancel
+                </button>
+                <button class="button" type="submit">Create</button>
+            </div>
+        </form>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <button class="button" onclick="document.getElementById('create-cert').style.display = 'block'">
+        Create
+    </button>
+
+    <br><br>
+
+    {% for cert in certificates %}
+        <div class="certificate">
+            <h3 class="certificate__title">{{ cert.person }}</h3>
+
+            <table class="certificate__table">
+                <tr>
+                    <td>Token</td>
+                    <td>{{ cert.token }}</td>
+                </tr>
+                <tr>
+                    <td>Date of Issue</td>
+                    <td>{{ cert.issue_date.strftime('%Y-%m-%d') }}</td>
+                </tr>
+                <tr>
+                    <td>Type of Certificate</td>
+                    <td>{{ cert.type }}</td>
+                </tr>
+                {% if cert.link %}
+                    <tr>
+                        <td>Code Link</td>
+                        <td>{{ cert.link }}</td>
+                    </tr>
+                {% endif %}
+                <tr>
+                    <td>Approved by</td>
+                    <td>{{ cert.approved_by }}</td>
+                </tr>
+            </table>
+
+            <p class="certificate__description">
+                {{ cert.description }}
+            </p>
+
+            <form method="post">
+                <input type="hidden" name="type" value="delete">
+                <input type="hidden" name="id" value="{{ cert.id }}">
+                <button class="button button--flat">Delete</button>
+            </form>
+        </div>
+    {% endfor %}
+
+    <div class="pagination__wrapper">
+        <div class="pagination">
+            {% if current > 1 %}
+                <a class="pagination__link" href="{{ url_for('routes.admin') }}?page={{ current - 1 }}">←</a>
+            {% endif %}
+            {% for i in range(1, (count + 50) // 50 + 1) %}
+                <a class="pagination__link {% if current == i %}pagination__link--active{% endif %}"
+                   href="{{ url_for('routes.admin') }}?page={{ i }}">{{ i }}</a>
+            {% endfor %}
+            {% if ((count + 50) // 50) > current %}
+                <a class="pagination__link" href="{{ url_for('routes.admin') }}?page={{ current + 1 }}">→</a>
+            {% endif %}
+        </div>
+    </div>
+
+    </body>
+{% endblock %}

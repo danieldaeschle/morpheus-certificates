@@ -1,0 +1,80 @@
+body {
+    margin: 2rem 8rem;
+}
+
+.certificate {
+    border: 1px solid #e2e2e2;
+    border-radius: 0.8em;
+    margin: 0.2rem 0;
+    padding: 1em;
+}
+.certificate__description {
+    font-size: 13px;
+}
+.certificate__table {
+    border-spacing: 0;
+    font-size: 13px;
+}
+.certificate__table td {
+    padding: 0 1em 0 0;
+}
+.certificate__title {
+    margin: 0 0 1rem;
+}
+.messages {
+    list-style: none;
+    padding: 0;
+}
+.messages li {
+    background-color: lightyellow;
+    border: 1px solid #e2e2e2;
+    padding: 0.3em;
+}
+.modal {
+    background: #ffffff;
+    border: 1px solid #e2e2e2;
+    border-radius: .6em;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    display: none;
+    left: 50%;
+    padding: 1em 2em;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 400px;
+}
+.modal__actions {
+    display: flex;
+    margin: 1em 0 0;
+}
+.modal__actions:first-child {
+    margin-left: auto;
+}
+.modal__actions > button {
+    margin-left: 0.4rem;
+}
+.modal__actions > button:first-child {
+    margin-left: auto !important;
+}
+.modal__form {
+    display: block;
+    margin: 0.4em 0;
+    width: calc(100% - 0.8em);
+}
+.pagination {
+    display: inline-block;
+    margin: 0 auto;
+}
+.pagination__link {
+    color: #1e1e1e;
+    cursor: pointer;
+    text-decoration: none;
+}
+.pagination__link--active {
+    color: #4c4c4c;
+}
+.pagination__wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
