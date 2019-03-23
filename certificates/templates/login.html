@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+{% endblock %}
+
+{% block content %}
+    <body class="box__container">
+    <form method="post">
+        <div class="box">
+            <h3 class="box__title">Login</h3>
+
+            <input class="input" autofocus name="username" placeholder="Username" required><br>
+            <input class="input" autofocus name="password" placeholder="Password" required>
+
+            <div class="box__actions">
+                <button class="button" type="submit">Login</button>
+            </div>
+        </div>
+    </form>
+    </body>
+{% endblock %}

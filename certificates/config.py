@@ -9,3 +9,5 @@ class Config:
     SQLALCHEMY_DATABASE_URI = f"mysql+pymysql://{MYSQL_USERNAME}:{MYSQL_PASSWORD}@{MYSQL_HOST}/{MYSQL_DATABASE}"
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = os.environ.get("SECRET_KEY")
+    LOGIN_USERNAME = os.environ.get("LOGIN_USERNAME", "admin")
+    LOGIN_PASSWORD = os.environ.get("LOGIN_PASSWORD", "admin")
