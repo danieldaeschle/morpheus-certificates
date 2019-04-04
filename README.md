@@ -9,6 +9,7 @@ Run the image in container
 ```
 docker run -d morpheus-certificates \
     -e MYSQL_HOST 127.0.0.1 \
+    -e MYSQL_PORT 3306 \
     -e MYSQL_USERNAME cert \
     -e MYSQL_PASSWORD cert \
     -e MYSQL_DATABASE morpheus-certificates \
