@@ -91,14 +91,14 @@
     <div class="pagination__wrapper">
         <div class="pagination">
             {% if current > 1 %}
-                <a class="pagination__link" href="{{ url_for('routes.admin') }}?page={{ current - 1 }}">←</a>
+                <a class="pagination__link" href="{{ url_for('views.admin') }}?page={{ current - 1 }}">←</a>
             {% endif %}
             {% for i in range(1, (count + 50) // 50 + 1) %}
                 <a class="pagination__link {% if current == i %}pagination__link--active{% endif %}"
-                   href="{{ url_for('routes.admin') }}?page={{ i }}">{{ i }}</a>
+                   href="{{ url_for('views.admin') }}?page={{ i }}">{{ i }}</a>
             {% endfor %}
             {% if ((count + 50) // 50) > current %}
-                <a class="pagination__link" href="{{ url_for('routes.admin') }}?page={{ current + 1 }}">→</a>
+                <a class="pagination__link" href="{{ url_for('views.admin') }}?page={{ current + 1 }}">→</a>
             {% endif %}
         </div>
     </div>
