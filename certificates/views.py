@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template, request, flash
+from flask import Blueprint, render_template, request, flash, session, redirect, url_for, current_app
 from .connection import db, Certificate
 
-views = Blueprint("routes", __name__)
+views = Blueprint("views", __name__)
 
 
 @views.route("/")
@@ -26,6 +26,9 @@ def certificate():
 
 @views.route("/admin", methods=["GET", "POST"])
 def admin():
+    if not session.get("logged_in", False):
+        return redirect(url_for("views.login"))
+
     if request.method == "POST":
         if request.form.get("type") == "delete":
             id_ = request.form.get("id")
@@ -58,4 +61,9 @@ def admin():
 
 @views.route('/login', methods=["GET", "POST"])
 def login():
-    pass
+    if request.method == "POST":
+        if request.form.get("username") == current_app.config["LOGIN_USERNAME"] and \
+                request.form.get("password") == current_app.config["LOGIN_PASSWORD"]:
+            session["logged_in"] = True
+        return redirect(url_for("views.admin"))
+    return render_template("login.html")
