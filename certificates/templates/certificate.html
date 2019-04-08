@@ -2,7 +2,7 @@
 
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='certificate.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='certificate.css') }}"/>
 {% endblock %}
 
 {% block content %}
@@ -13,33 +13,33 @@
         <table class="sheet__table">
             <tr>
                 <td class="sheet__table-cell sheet__table-cell--bold">Person</td>
-                <td class="sheet__table-cell sheet__table-cell--right">Cedric Mössner</td>
+                <td class="sheet__table-cell sheet__table-cell--right">{{ cert.person }}</td>
             </tr>
             <tr>
                 <td class="sheet__table-cell sheet__table-cell--bold">Date of Issue</td>
-                <td class="sheet__table-cell sheet__table-cell--right">19.03.2019</td>
+                <td class="sheet__table-cell sheet__table-cell--right">{{ cert.issue_date }}</td>
             </tr>
             <tr>
                 <td class="sheet__table-cell sheet__table-cell--bold">Type of Certificate</td>
-                <td class="sheet__table-cell sheet__table-cell--right">Programming</td>
+                <td class="sheet__table-cell sheet__table-cell--right">{{ cert.type }}</td>
             </tr>
             <tr>
                 <td class="sheet__table-cell sheet__table-cell--bold">Token</td>
-                <td class="sheet__table-cell sheet__table-cell--right">7839245893489573</td>
+                <td class="sheet__table-cell sheet__table-cell--right">{{ cert.token }}</td>
             </tr>
             <tr>
                 <td class="sheet__table-cell sheet__table-cell--bold">Code Link</td>
-                <td class="sheet__table-cell sheet__table-cell--right">Link to code</td>
+                <td class="sheet__table-cell sheet__table-cell--right">{{ cert.link }}</td>
             </tr>
             <tr>
                 <td class="sheet__table-cell sheet__table-cell--bold">Approved by</td>
-                <td class="sheet__table-cell sheet__table-cell--right">Daniel Däschle</td>
+                <td class="sheet__table-cell sheet__table-cell--right">{{ cert.approved_by }}</td>
             </tr>
         </table>
 
         <h4 class="sheet__subtitle">Description</h4>
         <p class="sheet__description">
-            Imported module called easy in Python and deployed it with Docker.
+            {{ cert.description }}
         </p>
     </div>
     </body>
