@@ -43,7 +43,7 @@ def admin():
             else:
                 cert = Certificate(
                     person=request.form.get("person"),
-                    type=request.form.get("type"),
+                    type=request.form.get("cert_type"),
                     issue_date=request.form.get("date") or None,
                     token=request.form.get("token"),
                     link=request.form.get("link") or None,
